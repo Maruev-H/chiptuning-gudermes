@@ -51,7 +51,7 @@ export default function ContactsPage() {
                 </a>
               </div>
 
-              <MapLinks />
+              <MapLinks twoGisHref={MAP_LINKS.twoGis} />
 
               <div className="map-buttons">
                 <a
@@ -78,30 +78,6 @@ export default function ContactsPage() {
                   <InstagramIcon gradientId="ig-contacts-map" />
                   <span>Instagram</span>
                 </a>
-                <a
-                  className="button button-secondary"
-                  href={MAP_LINKS.yandex}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Яндекс Карты
-                </a>
-                <a
-                  className="button button-secondary"
-                  href={MAP_LINKS.google}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Google Maps
-                </a>
-                <a
-                  className="button button-secondary"
-                  href={MAP_LINKS.twoGis}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  2ГИС
-                </a>
               </div>
             </div>
 
@@ -109,36 +85,20 @@ export default function ContactsPage() {
               <h2>Как добраться</h2>
               <p>
                 Chiptuning.gudermes находится в Гудермесе по адресу: проспект Терешковой, 1.
-                Для построения маршрута используйте Яндекс Карты, Google Maps или
-                карточку в 2ГИС.
+                Для построения маршрута используйте кнопки Яндекс Карты, Google Maps или
+                2ГИС.
               </p>
               <p>
                 Если нужно уточнить задачу заранее — диагностика, автоэлектрик,
                 чип-тюнинг или русификация Changan — напишите в WhatsApp или
                 позвоните. Так проще сориентировать по времени и подготовке.
               </p>
-              <ul className="check-list">
-                <li>
-                  <a href={MAP_LINKS.yandex} target="_blank" rel="noreferrer">
-                    Маршрут в Яндекс Картах
-                  </a>
-                </li>
-                <li>
-                  <a href={MAP_LINKS.google} target="_blank" rel="noreferrer">
-                    Маршрут в Google Maps
-                  </a>
-                </li>
-                <li>
-                  <a href={MAP_LINKS.twoGisRoute} target="_blank" rel="noreferrer">
-                    Маршрут в 2ГИС
-                  </a>
-                </li>
-                <li>
-                  <a href={MAP_LINKS.twoGis} target="_blank" rel="noreferrer">
-                    Карточка организации в 2ГИС
-                  </a>
-                </li>
-              </ul>
+              <MapLinks showLabel={false} twoGisHref={MAP_LINKS.twoGis} />
+              <p className="side-note">
+                <a href={MAP_LINKS.twoGisRoute} target="_blank" rel="noreferrer">
+                  Или сразу построить маршрут в 2ГИС →
+                </a>
+              </p>
             </div>
           </div>
         </section>

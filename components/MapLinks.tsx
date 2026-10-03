@@ -1,23 +1,53 @@
+import { GoogleMapsIcon } from "./icons/GoogleMapsIcon";
+import { TwoGisIcon } from "./icons/TwoGisIcon";
+import { YandexMapsIcon } from "./icons/YandexMapsIcon";
 import { BUSINESS, MAP_LINKS } from "../lib/site";
 
 type MapLinksProps = {
   showLabel?: boolean;
   className?: string;
+  twoGisHref?: string;
 };
 
-export function MapLinks({ showLabel = true, className = "route-menu" }: MapLinksProps) {
+export function MapLinks({
+  showLabel = true,
+  className = "route-menu",
+  twoGisHref = MAP_LINKS.twoGisRoute,
+}: MapLinksProps) {
   return (
     <div className={className}>
-      {showLabel ? <span className="route-label">Построить маршрут:</span> : null}
-      <a href={MAP_LINKS.yandex} target="_blank" rel="noreferrer">
-        Яндекс Карты
-      </a>
-      <a href={MAP_LINKS.google} target="_blank" rel="noreferrer">
-        Google Maps
-      </a>
-      <a href={MAP_LINKS.twoGisRoute} target="_blank" rel="noreferrer">
-        2ГИС
-      </a>
+      {showLabel ? (
+        <strong className="route-label">Построить маршрут</strong>
+      ) : null}
+      <div className="route-buttons">
+        <a
+          className="route-button"
+          href={MAP_LINKS.yandex}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <YandexMapsIcon />
+          <span>Яндекс Карты</span>
+        </a>
+        <a
+          className="route-button"
+          href={MAP_LINKS.google}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <GoogleMapsIcon />
+          <span>Google Maps</span>
+        </a>
+        <a
+          className="route-button"
+          href={twoGisHref}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <TwoGisIcon />
+          <span>2ГИС</span>
+        </a>
+      </div>
     </div>
   );
 }
